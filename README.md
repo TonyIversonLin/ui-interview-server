@@ -9,7 +9,7 @@ As part of this round, the development team would like to see your code for a re
 To install this application, clone the repo, install npm packages and run npm start. 
 
 ```sh
-$ git clone https://www.github.com/akshaychand/ui-interview.git && ui-interview
+$ git clone https://github.com/mkpcap/ui-interview-server.git && ui-interview
 $ npm install 
 $ npm start
 ```

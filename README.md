@@ -90,3 +90,12 @@ Bonus points (in order of priority) -
 2. Add any data viz. tool to render the data (linecharts, etc.).
 3. Show off your knowledge of how to implement the Redux pattern in an Angular world.
 4. Make this run as a docker container. 
+
+Final note - 
+The evaluators will be checking for application functionality by performing the following 2 steps:
+
+    ```
+    npm install
+    npm start
+    ```
+ Please make sure that your solution will not break on either of the above steps, this is a critical part of the evaluation.

@@ -93,9 +93,8 @@ Bonus points (in order of priority) -
 
 Final note - 
 The evaluators will be checking for application functionality by performing the following 2 steps:
-
-    ```
+    
     npm install
     npm start
-    ```
+    
  Please make sure that your solution will not break on either of the above steps, this is a critical part of the evaluation.

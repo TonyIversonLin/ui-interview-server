@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mock Data Publisher</title>
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script type="text/javascript" src="/socketcluster.js"></script>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        display: table;
+        font-weight: 100;
+        font-family: 'Roboto', Helvetica, sans-serif;
+      }
+      a {
+        font-weight: 300;
+        color: #72B963;
+      }
+      .container {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .content {
+        text-align: center;
+        display: inline-block;
+      }
+      .title {
+        font-size: 96px;
+        margin-bottom: 20px;
+      }
+
+      .text {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .small {
+        font-size: 18px;
+      }
+      .help { 
+        text-align:left;
+        clear: both;
+        float: left;
+        font-weight: 100;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      .grading { 
+        text-align:left;
+        clear: both;
+        float: left;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="title">
+          Mock Data Publisher
+        </div>
+        <div class="text">
+          This app generates mock Fund returns and publishes it using <a target="_blank" href="https://socketcluster.io/#!/">Socketcluster</a><br />
+          Hit <strong>CTRL+SHIFT+C (or CMD+SHIFT+C)</strong> to see the published data in Chrome's console.<br /><br />
+        </div>
+        <div class="text">
+          <em>
+            The goal of this exercise is to write a web application that renders the data published by this app using Angular2+, React or Meteor framework!<br />
+            <div class="help">Please note: A sample angular project is provided that demonstrates integration with socketCluster</div>
+          </em>
+        </div>
+        <div class="grading">
+          You will be graded on the following abilities -
+
+          <ol>
+            <li>Writing clean, concise and testable code.</li>
+            <li>Core concepts of centralized state management such as immutability and data normalization.</li>
+            <li>Creativity in building UI components. (Given the data, how well can you present it).</li>
+            <li>Performance.</li>
+          </ol>
+
+        </pre>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // Initiate the connection to the server
+      var socket = socketCluster.connect();
+
+      socket.on('error', function (err) {
+        throw 'Socket error - ' + err;
+      });
+
+      socket.on('connect', function () {
+        console.log('CONNECTED');
+      });
+
+      // socket.on('mockData', function (data) {
+      //   console.log('Mock Data Received: ' + JSON.stringify(data));
+      // });
+
+      socket.on('disconnect', function() {
+        console.log('DISCONNECTED');
+      });
+
+      var mockDataChannel = socket.subscribe('mockData');
+
+      mockDataChannel.on('subscribe', function(channelName){
+        console.log('Successfully subscribe to ' + channelName);
+      });
+
+      mockDataChannel.on('subscribeFail', function(err, channelName){
+        console.log('Failed to subscribe to ' + channelName);
+      })
+
+      mockDataChannel.watch(function(data) {
+        console.log('Mock Data Received: ' + JSON.stringify(data));
+      });
+
+    </script>
+  </body>
+</html>

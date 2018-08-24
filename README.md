@@ -88,4 +88,5 @@ Bonus points (in order of priority) -
 
 1. Show off your CSS/SCSS/LESS skills.
 2. Add any data viz. tool to render the data (linecharts, etc.).
-3. Make this run as a docker container. 
+3. Show off your knowledge of how to implement the Redux pattern in an Angular world.
+4. Make this run as a docker container. 

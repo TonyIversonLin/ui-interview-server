@@ -91,10 +91,17 @@ Bonus points (in order of priority) -
 3. Show off your knowledge of how to implement the Redux pattern in an Angular world.
 4. Make this run as a docker container. 
 
+Notice:
+The socket cluster will perform properly on Node version v6.0.0, follow the following step to change your node version
+
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    nvm install v6.0.0
+    nvm use v6.0.0
+
 Final note - 
 The evaluators will be checking for application functionality by performing the following 2 steps:
     
     npm install
-    npm start
+    npm start   
     
  Please make sure that your solution will not break on either of the above steps, this is a critical part of the evaluation.
